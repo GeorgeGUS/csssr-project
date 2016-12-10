@@ -6,21 +6,32 @@ mixin page()
 			img.stamp(src='/stamp.png' alt='СЕКРЕТНО')
 			img.page-title(src='/page-title.png' alt='ДЕЛО')
 			section.contacts
-				- var contactsList = [{title: 'Полное ФИО', content: 'Гусаков Георгий Сергеевич'}, {title: 'Год рождения', content: '1990'}, {title: 'Место жительства', content: 'г. Великий Новгород, Россия'}, {title: 'Скайп', content: 'georgegus27'}, {title: 'Почта', content: 'georgegus1@gmail.com'}];
+				- var contactsList = [{title: 'Полное ФИО', content: 'Гусаков Георгий Сергеевич'},
+				- {title: 'Год рождения', content: '1990'},
+				- {title: 'Место жительства', content: 'г. Великий Новгород, Россия'},
+				- {title: 'Скайп', content: 'georgegus27'},
+				- {title: 'Почта', content: 'georgegus1@gmail.com'}];
 				mixin contacts(contact)
 					p.contact-title= contact.title
 						span.contact-content= contact.content
 				for contact in contactsList
 					+contacts(contact)
-
 			section.section
 				h2.section-title Расскажите о себе чекбоксами
 				p.section-text.
 					Отметьте чекбоксами пункты, которые соответствуют вашим скиллам.
 					Кстати, отсутствие опыта не означает, что у вас меньше шансов стать одним из наших товарищей.
 					Это означает, что вы будете получать те задачи, с которыми гарантировано будете справляться.
-//				- var checkboxesList = [{}];
-
-
-
-
+				- var skillsList = [{label: 'БЭМ/OOCSS', checked: false}, {label: 'Pug (Jade)', checked: true}, {label: 'Stylus/LESS/SASS'},
+				- {label: 'Работаю с SVG'}, {label: 'Верстаю семантично'}, {label: 'Accessibility (A11Y)'},
+				- {label: 'ES2015/ES2016'}, {label: 'Gulp/GRUNT'}, {label: 'Webpack'}, {label: 'Дружу с WebGL'}, {label: 'jQuery'},
+				- {label: 'Знаю/изучаю Angular'}, {label: 'Знаю/изучаю React'}, {label: 'Знаю/изучаю Node.js'},
+				- {label: 'Использую Git'}, {label: ['С ', 'глазомером ', 'всё ', 'ок']},
+				- {label: 'Читаю blog.csssr.ru'}, {label: 'Я ленивый(-ая)'}, {label: 'У меня хороший английский'}];
+				mixin checkboxes(skill)
+					li
+						input(type='checkbox' name='skill')
+						label= skill.label
+				ul.skills_col
+					for skill in skillsList
+						+checkboxes(skill)
