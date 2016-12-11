@@ -24,9 +24,10 @@ body
 	display block
 
 p.contact-title
-	font-family 'PTSans', 'Arial', sans-serif
+	font-family 'PT Sans', 'Arial', sans-serif
 	font-size 22px
 	font-weight bold
+	line-height 1.5em
 
 span.contact-content
 	padding 10px 20px
@@ -35,11 +36,37 @@ span.contact-content
 	font-size 30px
 	font-weight normal
 
-h2.section-title
-	font-family 'PTSans', 'Arial', sans-serif
-	font-size 24px
-	font-weight bold
-	line-height 50px
-
 .section
 	margin-top 65px
+	clearfix()
+	&__title
+		font-family 'PT Sans', 'Arial', sans-serif
+		font-size 24px
+		font-weight bold
+		line-height 50px
+		color colorTitle
+	&__text
+		margin-bottom 1.5em
+		font-family 'PT Sans', 'Arial', sans-serif
+		font-size 15px
+		line-height 1.5em
+		color colorText
+	&__column
+		float left
+		clearfix()
+		&-line
+			display block
+			font-family 'PT Sans', 'Arial', sans-serif
+			font-size 21px
+			font-weight bold
+
+			.stairs-text
+				margin 0 4px 0 -4px
+				display inline-block
+			input
+				margin-right 10px
+				margin-bottom 17px
+				size 21px
+				vertical-align top
+
+
