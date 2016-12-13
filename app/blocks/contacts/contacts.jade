@@ -1,0 +1,17 @@
+-
+	var contactsList = [
+		{title: 'Полное ФИО', content: 'Гусаков Георгий Сергеевич'},
+		{title: 'Год рождения', content: '1990'},
+		{title: 'Место жительства', content: 'г. Великий Новгород, Россия'},
+		{title: 'Скайп', content: 'georgegus27'},
+		{title: 'Почта', content: 'georgegus1@gmail.com'}
+	];
+
+mixin contacts()
+	+b.contacts&attributes()
+		section.section
+			mixin contactLines(item)
+				p.section__title= item.title
+					span.section__text-input= item.content
+			for item in contactsList
+				+contactLines(item)
