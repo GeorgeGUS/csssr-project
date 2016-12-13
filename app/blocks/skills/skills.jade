@@ -1,0 +1,45 @@
+-
+	var skillsList = [
+		[
+			{label: 'БЭМ/OOCSS', checked: false}, {label: 'Pug (Jade)', checked: true},
+			{label: 'Stylus/LESS/SASS', checked: true}, {label: 'Работаю с SVG', checked: false},
+			{label: 'Верстаю семантично', checked: true}, {label: 'Accessibility (A11Y)', checked: false},
+			{label: 'ES2015/ES2016', checked: true}
+		],
+		[
+			{label: 'Gulp/GRUNT', checked: true}, {label: 'Webpack', checked: false},
+			{label: 'Дружу с WebGL', checked: false}, {label: 'jQuery', checked: false},
+			{label: 'Знаю/изучаю Angular', checked: false}, {label: 'Знаю/изучаю React', checked: false},
+			{label: 'Знаю/изучаю Node.js', checked: true}
+		],
+		[
+			{label: 'Использую Git', checked: true}, {label: ['С', 'глазомером', 'всё', 'ок'], checked: true},
+			{label: 'Читаю', link: 'blog.csssr.ru', checked: false}, {label: 'Я ленивый(-ая)', checked: false},
+			{label: 'У меня хороший английский', checked: true}
+		]
+	];
+	var colsWidth = [260, 270, 240];
+
+mixin skills()
+	+b.skills&attributes()
+		section.section
+			h2.section__title Расскажите о себе чекбоксами
+			p.section__text.
+				Отметьте чекбоксами пункты, которые соответствуют вашим скиллам.
+				Кстати, отсутствие опыта не означает, что у вас меньше шансов стать одним из наших товарищей.
+				Это означает, что вы будете получать те задачи, с которыми гарантировано будете справляться.
+			mixin checkboxes(skill)
+				label.section__column-line
+					input(type='checkbox' name='skill' checked=skill.checked)
+					if skill.label.constructor === Array
+						each val, i in skill.label
+							span.stairs-text(style={'vertical-align': -i + 'px'})= val
+					else if 'link' in skill
+						= skill.label
+							a.section__column-line__link(href='http://' + skill.link)= skill.link
+					else
+						= skill.label
+			each col, num in skillsList
+				.section__column(style={width: colsWidth[num] + 'px'})
+					each val in col
+						+checkboxes(val)
