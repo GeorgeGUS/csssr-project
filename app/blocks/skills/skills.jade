@@ -6,17 +6,20 @@ mixin skills()
 			Отметьте чекбоксами пункты, которые соответствуют вашим скиллам.
 			Кстати, отсутствие опыта не означает, что у вас меньше шансов стать одним из наших товарищей.
 			Это означает, что вы будете получать те задачи, с которыми гарантировано будете справляться.
+		- var checkID = 0;
 		mixin checkboxes(skill)
-			label.skills__column-line
-				input(type='checkbox' name='skill' checked=skill.checked)
-				if skill.label.constructor === Array
+			- checkID += 1;
+			- checkIDtext = 'checkbox' + checkID;
+			input.input-checkbox(type='checkbox' name='skill' checked=skill.checked id=checkIDtext)
+			if skill.label.constructor === Array
+				label.label(for= checkIDtext)
 					each val, i in skill.label
-						span.skills__column-line--stairs-text(style={'vertical-align': -i + 'px'})= val
-				else if 'link' in skill
-					= skill.label
-						a.skills__column-line__link(href='http://' + skill.link)= skill.link
-				else
-					= skill.label
+						span.label__stairs-text(style={'vertical-align': -i + 'px'})= val
+			else if 'link' in skill
+				label.label(for= checkIDtext)= skill.label
+					a.label__link(href='http://' + skill.link)= skill.link
+			else
+				label.label(for= checkIDtext)= skill.label
 		each col, num in skillsList
 			.skills__column(style={width: colsWidth[num] + 'px'})
 				each val in col
