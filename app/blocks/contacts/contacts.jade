@@ -2,7 +2,8 @@ mixin contacts()
 	+b('section').contacts&attributes()
 		block contacts
 		mixin contactLines(item)
-			p.contacts__title= item.title
-				span.contacts__text-input= item.content
+			.contact-line
+				.contact-line__title= item.title
+				.contact-line__text= item.content
 		for item in contactsList
 			+contactLines(item)
