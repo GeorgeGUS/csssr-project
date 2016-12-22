@@ -3,9 +3,13 @@
 	display block
 
 .slider
+	position relative
 	margin-top 15px
 
 	&__arrow
+		position absolute
+		top -15px
+		left 762px
 		size 14px
 		cursor pointer
 		sprite($arrow_down)
@@ -64,7 +68,3 @@
 			content ''
 			size 3px 12px
 			background colorTitle
-
-
-	// &__item:last-of-type
-
