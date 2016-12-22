@@ -1,0 +1,13 @@
+-var sliderItems = [{label: 'Не владею', checked: false},{label: 'Использую готовые решения', checked: false},{label: 'Использую готовые решения и умею их переделывать', checked: true},{label: 'Пишу сложный JS с нуля', checked: false}];
+mixin js-skills()
+	+b('section').js-skills&attributes(attributes)
+		block js-skills
+		h2.section-title Уровень владения JavaScript
+		.slider
+			.slider__arrow
+			.slider__scale
+			.slider__items
+				each item, num in sliderItems
+					.slider__item
+						input(type='radio' name='jslevel' id='JSlevel'+num checked=item.checked)
+						label(for='JSlevel'+num)= item.label
