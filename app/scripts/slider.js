@@ -1,6 +1,6 @@
-'use strict';
+import $ from 'jquery';
 
-module.exports = function sliderAnimate() {
+$(() => {
 	const cursor = document.querySelector('.slider__arrow');
 	const skillsContainer = document.querySelector('.slider__items');
 	const skillItems = document.querySelectorAll('.slider__item');
@@ -13,6 +13,6 @@ module.exports = function sliderAnimate() {
 			}
 		});
 	};
-
+	console.log('Hello!');
 	skillsContainer.addEventListener('click', moveCursor);
-};
+});

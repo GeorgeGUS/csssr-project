@@ -1,6 +1,7 @@
 include ../contacts/contacts
 include ../skills/skills
 include ../js-skills/js-skills
+include ../scripts/scripts
 
 mixin page()
 	+b('body').page&attributes()
@@ -11,3 +12,4 @@ mixin page()
 			+contacts
 			+skills
 			+js-skills
+		+scripts(['app.min.js'])
