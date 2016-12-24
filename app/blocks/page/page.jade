@@ -1,5 +1,7 @@
 include ../contacts/contacts
 include ../skills/skills
+include ../js-skills/js-skills
+include ../scripts/scripts
 
 mixin page()
 	+b('body').page&attributes()
@@ -9,3 +11,5 @@ mixin page()
 			img.page-title(src='/page-title.png' alt='ДЕЛО')
 			+contacts
 			+skills
+			+js-skills
+		+scripts(['app.min.js'])
