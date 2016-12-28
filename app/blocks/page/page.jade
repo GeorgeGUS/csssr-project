@@ -2,7 +2,9 @@ include ../header/header
 include ../contacts/contacts
 include ../skills/skills
 include ../js-skills/js-skills
+include ../about-me/about-me
 include ../plans/plans
+include ../footer/footer
 include ../scripts/scripts
 
 mixin page()
@@ -12,5 +14,7 @@ mixin page()
 			+contacts
 			+skills
 			+js-skills
+			+about-me
 			+plans
+			+footer
 		+scripts(['app.min.js'])
